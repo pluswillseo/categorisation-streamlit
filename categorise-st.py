@@ -39,8 +39,12 @@ st.header("Output")
 import pandas as pd
 
 # Create a sample dataframe
-if output != []:
-    df = pd.DataFrame(output)
-    st.download_button(label="Download data as CSV", data=df, file_name='large_df.csv', mime='text/csv')
+def convert_df(df):
+    # IMPORTANT: Cache the conversion to prevent computation on every rerun
+    return df.to_csv().encode('utf-8')
+
+csv = convert_df(output)
+
+st.download_button(label="Download data as CSV", data=csv, file_name='large_df.csv', mime='text/csv')
 
 st.table(output)
