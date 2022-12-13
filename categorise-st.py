@@ -70,6 +70,5 @@ else:
 # Display the filtered DataFrame
     st.table(filtered_df)
     csv = filtered_df.to_csv(index=False)
-    st.download_button('Download Table as CSV', csv, file_name = 'output.csv', mime='text/csv')
 
 st.download_button('Download Table as CSV', csv, file_name = 'output.csv', mime='text/csv')
