@@ -52,7 +52,7 @@ st.sidebar.title("Filters")
 selected_categories = st.sidebar.multiselect("Select categories to filter by:", options=list(products.keys()))
 
 # Filter the table by the selected categories
-filtered_df = df[df["Categories"].isin(selected_categories)]
+filtered_df = df[np.isin(df["Categories"], selected_categories)]
 
 # Display the filtered DataFrame
 st.table(filtered_df)
