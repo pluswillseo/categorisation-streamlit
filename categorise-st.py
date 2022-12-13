@@ -18,12 +18,6 @@ while True:
     keywords = [k.strip() for k in keywords.split(",")]
     products[category] = keywords
 
-# Add a sidebar to the app
-st.sidebar.title("Filters")
-
-# Add a multiselect widget to the sidebar
-categories = st.sidebar.multiselect("Categories", list(products.keys()))
-
 # Read the keywords from the keywords.csv file
 st.header("Keywords")
 keywords = st.text_area("Enter keywords, separated by newlines:", key="input_keywords")
@@ -50,6 +44,12 @@ df.rename(columns = {0:'Keywords', 1:'Categories'}, inplace = True)
 
 csv = df.to_csv(index=False)
 st.download_button('Download Table as CSV', csv, file_name = 'output.csv', mime='text/csv')
+
+# Add a sidebar to the app
+st.sidebar.title("Filters")
+
+# Add a multiselect widget to the sidebar
+categories = st.sidebar.multiselect("Categories", list(products.keys()))
 
 # Filter the DataFrame using the multiselect widget
 filtered_df = df[df["Categories"].isin(categories)]
