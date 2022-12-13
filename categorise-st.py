@@ -3,10 +3,10 @@ import csv
 import re
 import pandas as pd
 
-st.title("Samsung Product Keyword Classifier")
+st.title("Keyword Categoriser")
 
 # Define a dictionary of Samsung products and their relevant keywords
-st.header("Products and Keywords")
+st.header("Categories and Keywords")
 products = {}
 category_count = 0
 while True:
