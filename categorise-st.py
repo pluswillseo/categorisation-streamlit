@@ -52,7 +52,7 @@ csv = df.to_csv(index=False)
 st.download_button('Download Table as CSV', csv, file_name = 'output.csv', mime='text/csv')
 
 # Filter the DataFrame using the multiselect widget
-filtered_df = df[df["fruit"].isin(categories)]
+filtered_df = df[df["Categories"].isin(categories)]
 
 # Display the filtered DataFrame
 st.table(filtered_df)
