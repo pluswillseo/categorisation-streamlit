@@ -60,7 +60,3 @@ else:
 
 # Display the filtered DataFrame
     st.table(filtered_df)
-
-st.table(df)
-
-
