@@ -38,8 +38,8 @@ st.header("Output")
 
 import pandas as pd
 
+st.table(output)
+
 df = pd.Dataframe(output)
 
 st.dataframe(df)
-
-st.table(output)
