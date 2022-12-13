@@ -36,4 +36,17 @@ for keyword in keywords:
 
 st.header("Output")
 
+import pandas as pd
+
+# Create a sample dataframe
+df = pd.DataFrame(output)
+
+# Use the st.dataframe method to display the dataframe
+st.dataframe(df)
+
+# Add a button to export the table
+if st.button('Export Table'):
+    df.to_csv('my_table.csv', index = False)
+    st.success('Table exported to CSV file!')
+
 st.table(output)
