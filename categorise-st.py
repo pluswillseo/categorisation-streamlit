@@ -41,9 +41,11 @@ import pandas as pd
 # Create a sample dataframe
 df = pd.DataFrame(output)
 
-# Add a button to export the table
-if st.button('Export Table'):
-    df.to_csv('my_table.csv', index = False)
-    st.success('Table exported to CSV file!')
+st.download_button(
+    label="Download data as CSV",
+    data=df,
+    file_name='large_df.csv',
+    mime='text/csv',
+)
 
 st.table(output)
