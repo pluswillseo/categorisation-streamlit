@@ -55,8 +55,6 @@ selected_categories = st.sidebar.multiselect("Select categories to filter by:", 
 if selected_categories == []:
     st.table(df)
     csv = df.to_csv(index=False)
-    st.download_button('Download Table as CSV', csv, file_name = 'output.csv', mime='text/csv')
-
 else:
     # Filter the table by the selected categories
     # create an empty list to store the rows that match the filter criteria
@@ -72,8 +70,9 @@ else:
 # create a new DataFrame using the filtered rows
             filtered_df = pd.DataFrame(filtered_rows)
 
-
 # Display the filtered DataFrame
     st.table(filtered_df)
     csv = filtered_df.to_csv(index=False)
     st.download_button('Download Table as CSV', csv, file_name = 'output.csv', mime='text/csv')
+
+st.download_button('Download Table as CSV', csv, file_name = 'output.csv', mime='text/csv')
