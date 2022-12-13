@@ -41,6 +41,6 @@ import pandas as pd
 # Create a sample dataframe
 df = pd.DataFrame(output)
 
-st.download_button(label="Download data as CSV", df, file_name='large_df.csv', mime='text/csv')
+st.download_button(label="Download data as CSV", data=csv, file_name='large_df.csv', mime='text/csv')
 
 st.table(output)
