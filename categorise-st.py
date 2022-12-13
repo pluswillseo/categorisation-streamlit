@@ -51,6 +51,12 @@ df.rename(columns = {0:'Keywords', 1:'Categories'}, inplace = True)
 csv = df.to_csv(index=False)
 st.download_button('Download Table as CSV', csv, file_name = 'output.csv', mime='text/csv')
 
-st.table(output)
+# Filter the DataFrame using the multiselect widget
+filtered_df = df[df["fruit"].isin(categories)]
+
+# Display the filtered DataFrame
+st.table(filtered_df)
+
+#st.table(output)
 
 
