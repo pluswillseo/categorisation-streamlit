@@ -47,16 +47,19 @@ csv = df.to_csv(index=False)
 st.download_button('Download Table as CSV', csv, file_name = 'output.csv', mime='text/csv')
 
 # Add a sidebar to the app
-st.sidebar.title("Filters")
+st.sidebar.title("Filter Categories")
 
 # Add a filter to the sidebar that allows users to select multiple categories
 selected_categories = st.sidebar.multiselect("Select categories to filter by:", options=list(products.keys()))
 
-# Filter the table by the selected categories
-filtered_df = df[np.isin(df["Categories"], selected_categories, assume_unique=True)]
+if selected_categories == []:
+    st.table(df)
+else:
+    # Filter the table by the selected categories
+    filtered_df = df[np.isin(df["Categories"], selected_categories, assume_unique=True)]
 
 # Display the filtered DataFrame
-st.table(filtered_df)
+    st.table(filtered_df)
 
 st.table(df)
 
