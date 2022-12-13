@@ -43,7 +43,7 @@ df = pd.DataFrame(output)
 
 st.download_button(
     label="Download data as CSV",
-    data=df,
+    df,
     file_name='large_df.csv',
     mime='text/csv',
 )
