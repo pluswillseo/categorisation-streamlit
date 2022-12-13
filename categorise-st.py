@@ -38,11 +38,11 @@ st.header("Output")
 
 import pandas as pd
 
-st.table(output)
-
 df = pd.DataFrame(output)
-
-st.dataframe(df)
 
 csv = df.to_csv(index=False)
 st.download_button('Download Table as CSV', csv)
+
+st.table(output)
+
+
