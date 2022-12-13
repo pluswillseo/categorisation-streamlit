@@ -18,6 +18,12 @@ while True:
     keywords = [k.strip() for k in keywords.split(",")]
     products[category] = keywords
 
+# Add a sidebar to the app
+st.sidebar.title("Filters")
+
+# Add a multiselect widget to the sidebar
+categories = st.sidebar.multiselect("Categories", list(products.keys()))
+
 # Read the keywords from the keywords.csv file
 st.header("Keywords")
 keywords = st.text_area("Enter keywords, separated by newlines:", key="input_keywords")
