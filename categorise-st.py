@@ -60,3 +60,14 @@ else:
 
 # Display the filtered DataFrame
     st.table(filtered_df)
+
+
+if selected_categories == []:
+    st.table(df)
+else:
+    # Filter the table by the selected categories
+    filtered_df = np.where(np.isin(selected_categories, df["Categories"], assume_unique=True
+
+# Display the filtered DataFrame
+    st.table(filtered_df)
+    
