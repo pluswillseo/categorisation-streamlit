@@ -54,10 +54,26 @@ selected_categories = st.sidebar.multiselect("Select categories to filter by:", 
 
 if selected_categories == []:
     st.table(df)
+    csv = df.to_csv(index=False)
+    st.download_button('Download Table as CSV', csv, file_name = 'output.csv', mime='text/csv')
+
 else:
     # Filter the table by the selected categories
-    filtered_df = df[np.isin(df["Categories"], selected_categories, assume_unique=True)]
+    # create an empty list to store the rows that match the filter criteria
+    filtered_rows = []
+
+# iterate over the rows in the DataFrame
+    for index, row in df.iterrows():
+        # check if the fruit column contains any items from the list
+        if any(item in row['Categories'] for item in selected_categories):
+            # if it does, append the row to the filtered_rows list
+            filtered_rows.append(row)
+            
+# create a new DataFrame using the filtered rows
+            filtered_df = pd.DataFrame(filtered_rows)
+
 
 # Display the filtered DataFrame
     st.table(filtered_df)
-   
+    csv = filtered_df.to_csv(index=False)
+    st.download_button('Download Table as CSV', csv, file_name = 'output.csv', mime='text/csv')
