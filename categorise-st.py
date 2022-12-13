@@ -41,7 +41,7 @@ import pandas as pd
 df = pd.DataFrame(output)
 
 csv = df.to_csv(index=False)
-st.download_button('Download Table as CSV', csv)
+st.download_button('Download Table as CSV', csv, file_name = 'output.csv', mime='text/csv')
 
 st.table(output)
 
