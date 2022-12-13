@@ -40,7 +40,7 @@ import pandas as pd
 
 df = pd.DataFrame(output)
 
-df.rename(columns = {0:'Keywords', '1':'Categories'}, inplace = True)
+df.rename(columns = {0:'Keywords', 1:'Categories'}, inplace = True)
 
 csv = df.to_csv(index=False)
 st.download_button('Download Table as CSV', csv, file_name = 'output.csv', mime='text/csv')
