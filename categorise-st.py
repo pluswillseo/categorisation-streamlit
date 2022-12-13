@@ -66,7 +66,7 @@ if selected_categories == []:
     st.table(df)
 else:
     # Filter the table by the selected categories
-    filtered_df = np.isin(selected_categories, df["Categories"], assume_unique=True)
+    filtered_df = df[df['Categories'].astype(str).str.contains(selected_categories))
 
 # Display the filtered DataFrame
     st.table(filtered_df)
