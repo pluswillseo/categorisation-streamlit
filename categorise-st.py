@@ -41,7 +41,7 @@ import pandas as pd
 # Create a sample dataframe
 def convert_df(df):
     # IMPORTANT: Cache the conversion to prevent computation on every rerun
-    return pd.Dataframe().to_csv().encode('utf-8')
+    return df.Dataframe().to_csv().encode('utf-8')
 
 csv = convert_df(output)
 
