@@ -57,6 +57,6 @@ filtered_df = df[df["Categories"].isin(categories)]
 # Display the filtered DataFrame
 st.table(filtered_df)
 
-#st.table(output)
+st.table(df)
 
 
