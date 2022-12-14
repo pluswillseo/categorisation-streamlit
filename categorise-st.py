@@ -50,6 +50,15 @@ st.sidebar.title("Filter categories")
 # Add a filter to the sidebar that allows users to select multiple categories
 selected_categories = st.sidebar.multiselect("Select categories to filter by:", options=list(products.keys()))
 
+# Add a text input field to the app
+filter_word = st.sidebar.text_input("Enter a word to filter by:")
+
+# Filter the data by the entered word
+#filtered_data = data[data['column_name'].str.contains(filter_word)]
+
+# Display the filtered data
+#st.table(filtered_data)
+
 if selected_categories == []:
     st.table(df)
     csv = df.to_csv(index=False)
