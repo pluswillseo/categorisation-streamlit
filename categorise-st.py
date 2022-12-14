@@ -59,7 +59,7 @@ filter_word = st.sidebar.text_input("Enter a word to filter by:")
 # Display the filtered data
 #st.table(filtered_data)
 
-if selected_categories == []:
+if selected_categories == [] & filter_word == []:
     st.table(df)
     csv = df.to_csv(index=False)
 else:
