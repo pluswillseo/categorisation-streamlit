@@ -8,6 +8,7 @@ st.title("Keyword Categoriser")
 
 # Define a dictionary of Samsung products and their relevant keywords
 st.header("Categories and Keywords")
+st.write("Add the categories you would like to use, along with the keywords and regex that identify each. Once you've completed all your categories, leave the last one blank and move on to adding your keywords.")
 products = {}
 category_count = 0
 while True:
