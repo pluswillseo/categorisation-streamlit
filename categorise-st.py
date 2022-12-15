@@ -90,9 +90,6 @@ else:
         if any(item in row['Categories'] for item in selected_categories):
             # if it does, append the row to the filtered_rows list
             filtered_rows.append(row)
-        if any(item in row['Categories'] for item in remove_categories):
-            # if it does, append the row to the filtered_rows list
-            filtered_rows.append(row)
             
 # create a new DataFrame using the filtered rows
             filtered_df = pd.DataFrame(filtered_rows)
