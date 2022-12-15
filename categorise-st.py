@@ -22,8 +22,22 @@ while True:
 
 # Read the keywords from the keywords.csv file
 st.header("Keywords")
-keywords = st.text_area("Enter keywords, separated by a new line for each:", key="input_keywords")
-keywords = keywords.split("\n")
+
+# Create a file uploader widget
+uploaded_file = st.file_uploader('Choose a CSV file')
+
+# Check if the user has uploaded a file
+if uploaded_file is not None:
+  # If a file was uploaded, read the keywords from the CSV file
+  keywords = []
+  with open(uploaded_file, 'r') as f:
+    reader = csv.reader(f)
+    for row in reader:
+      keywords.extend(row)
+else:
+  # If no file was uploaded, get the keywords from the text area widget
+    keywords = st.text_area('Enter your keywords here')
+    keywords = keywords.split("\n")
 
 # Loop through each keyword and write its corresponding category to the output.csv file
 output = []
