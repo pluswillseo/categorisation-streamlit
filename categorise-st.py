@@ -24,7 +24,7 @@ while True:
 st.header("Keywords")
 
 # Create a file uploader widget
-uploaded_file = st.file_uploader('Choose a CSV file')
+uploaded_file = st.file_uploader('Choose a CSV file with your keywords in it')
 
 # Check if the user has uploaded a file
 if uploaded_file is not None:
