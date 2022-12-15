@@ -93,6 +93,17 @@ else:
             
 # create a new DataFrame using the filtered rows
             filtered_df = pd.DataFrame(filtered_rows)
+    
+    #add to this if need be
+    filtered_rows = []
+    for index, row in filtered_df.iterrows():
+        # check if the fruit column contains any items from the list
+        if any(item in row['Categories'] for item in remove_categories):
+            # if it does, append the row to the filtered_rows list
+            filtered_rows.append(row)
+            
+# create a new DataFrame using the filtered rows
+            filtered_df = pd.DataFrame(filtered_rows)
 
 # Display the filtered DataFrame
     st.table(filtered_df)
