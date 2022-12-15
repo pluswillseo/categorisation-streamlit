@@ -98,7 +98,7 @@ else:
     filtered_rows = []
     for index, row in filtered_df.iterrows():
         # check if the fruit column contains any items from the list
-        if any(item in row['Categories'] for item in remove_categories):
+        if any(item not in row['Categories'] for item in remove_categories):
             # if it does, append the row to the filtered_rows list
             filtered_rows.append(row)
             
