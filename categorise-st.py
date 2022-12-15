@@ -67,9 +67,6 @@ selected_categories = st.sidebar.multiselect("Select categories to filter by:", 
 # Add a filter to the sidebar that allows users to select multiple categories
 remove_categories = st.sidebar.multiselect("Select categories to remove:", options=list(products.keys()))
 
-# Add a text input field to the app
-filter_word = st.sidebar.text_input("Enter a word to filter by:")
-
 # Filter the data by the entered word
 #filtered_data = data[data['column_name'].str.contains(filter_word)]
 
@@ -99,16 +96,6 @@ else:
     for index, row in filtered_df.iterrows():
         # check if the fruit column contains any items from the list
         if any(item not in row['Categories'] for item in remove_categories):
-            # if it does, append the row to the filtered_rows list
-            filtered_rows.append(row)
-            
-# create a new DataFrame using the filtered rows
-            filtered_df = pd.DataFrame(filtered_rows)
-
-    filtered_rows = []
-    for index, row in filtered_df.iterrows():
-        # check if the fruit column contains any items from the list
-        if any(item in row['Keywords'] for item in filter_word):
             # if it does, append the row to the filtered_rows list
             filtered_rows.append(row)
             
