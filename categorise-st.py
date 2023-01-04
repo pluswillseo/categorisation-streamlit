@@ -73,7 +73,7 @@ remove_categories = st.sidebar.multiselect("Select categories to remove:", optio
 # Display the filtered data
 #st.table(filtered_data)
 
-if selected_categories == [] & remove_categories == []:   # & filter_word == []:
+if selected_categories == [] && remove_categories == []:   # & filter_word == []:
     st.table(df)
     csv = df.to_csv(index=False)
 else:
