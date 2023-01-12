@@ -73,37 +73,46 @@ remove_categories = st.sidebar.multiselect("Select categories to remove:", optio
 # Display the filtered data
 #st.table(filtered_data)
 
-if selected_categories == [] and remove_categories == []:   # & filter_word == []:
-    st.table(df)
-    csv = df.to_csv(index=False)
+if selected_categories and remove_categories:
+    filtered_df = df[(df['Categories'].isin(selected_categories)) & (~df["Categories"].isin(remove_categories))]
+elif selected_categories:
+    filtered_df = df[df['Categories'].isin(selected_categories)]
+elif remove_categories:
+    filtered_df = df[df['Categories].isin(remove_categories)]             
 else:
-    # Filter the table by the selected categories
+    filtered_df = df
+
+#if selected_categories == [] and remove_categories == []:   # & filter_word == []:
+#    st.table(df)
+#    csv = df.to_csv(index=False)
+#else:
+#    # Filter the table by the selected categories
     # create an empty list to store the rows that match the filter criteria
-    filtered_rows = []
+#    filtered_rows = []
 
 # iterate over the rows in the DataFrame
-    for index, row in df.iterrows():
-        # check if the fruit column contains any items from the list
-        if any(item in row['Categories'] for item in selected_categories):
-            # if it does, append the row to the filtered_rows list
-            filtered_rows.append(row)
+#    for index, row in df.iterrows():
+#        # check if the fruit column contains any items from the list
+#        if any(item in row['Categories'] for item in selected_categories):
+#            # if it does, append the row to the filtered_rows list
+#            filtered_rows.append(row)
             
 # create a new DataFrame using the filtered rows
-            filtered_df = pd.DataFrame(filtered_rows)
+#            filtered_df = pd.DataFrame(filtered_rows)
     
     #add to this if need be to remove categories
-    filtered_rows = []
-    for index, row in filtered_df.iterrows():
-        # check if the fruit column contains any items from the list
-        if any(item not in row['Categories'] for item in remove_categories):
-            # if it does, append the row to the filtered_rows list
-            filtered_rows.append(row)
+#    filtered_rows = []
+#    for index, row in filtered_df.iterrows():
+#        # check if the fruit column contains any items from the list
+#        if any(item not in row['Categories'] for item in remove_categories):
+#            # if it does, append the row to the filtered_rows list
+#            filtered_rows.append(row)
             
 # create a new DataFrame using the filtered rows
-            filtered_df = pd.DataFrame(filtered_rows)
+#            filtered_df = pd.DataFrame(filtered_rows)
     
 # Display the filtered DataFrame
-    st.table(filtered_df)
-    csv = filtered_df.to_csv(index=False)
+#    st.table(filtered_df)
+#    csv = filtered_df.to_csv(index=False)
 
 st.download_button('Download Table as CSV', csv, file_name = 'output.csv', mime='text/csv')
