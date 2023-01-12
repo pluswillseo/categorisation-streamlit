@@ -75,12 +75,21 @@ remove_categories = st.sidebar.multiselect("Select categories to remove:", optio
 
 if selected_categories and remove_categories:
     filtered_df = df[(df['Categories'].isin(selected_categories)) & (~df["Categories"].isin(remove_categories))]
+    csv = filtered_df
+    st.download_button('Download Table as CSV', csv, file_name = 'output.csv', mime='text/csv')
 elif selected_categories:
     filtered_df = df[df['Categories'].isin(selected_categories)]
+    csv = filtered_df
+    st.download_button('Download Table as CSV', csv, file_name = 'output.csv', mime='text/csv')
 elif remove_categories:
-    filtered_df = df[~df['Categories'].isin(remove_categories)]             
+    filtered_df = df[~df['Categories'].isin(remove_categories)]   
+    csv = filtered_df
+    st.download_button('Download Table as CSV', csv, file_name = 'output.csv', mime='text/csv')
 else:
     filtered_df = df
+    csv = filtered_df
+    st.download_button('Download Table as CSV', csv, file_name = 'output.csv', mime='text/csv')
+
 
 #if selected_categories == [] and remove_categories == []:   # & filter_word == []:
 #    st.table(df)
@@ -114,5 +123,3 @@ else:
 # Display the filtered DataFrame
 #    st.table(filtered_df)
 #    csv = filtered_df.to_csv(index=False)
-
-st.download_button('Download Table as CSV', csv, file_name = 'output.csv', mime='text/csv')
