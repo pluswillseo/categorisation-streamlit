@@ -78,7 +78,7 @@ if selected_categories and remove_categories:
 elif selected_categories:
     filtered_df = df[df['Categories'].isin(selected_categories)]
 elif remove_categories:
-    filtered_df = df[df['Categories].isin(remove_categories)]             
+    filtered_df = df[~df['Categories'].isin(remove_categories)]             
 else:
     filtered_df = df
 
