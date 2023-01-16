@@ -86,8 +86,8 @@ else:
     filtered_df = df
     csv = filtered_df
 
-if not filtered_df.empty():
-    st.download_button('Download Table as CSV', csv, file_name = 'output.csv', mime='text/csv')
+#if not filtered_df.empty():
+ #   st.download_button('Download Table as CSV', csv, file_name = 'output.csv', mime='text/csv')
 
 
 #if selected_categories == [] and remove_categories == []:   # & filter_word == []:
